@@ -1,0 +1,32 @@
+generated: '2026-09-05'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: www.getwinkapp.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 19 09:05:43 2026 GMT
+  hsts: true
+  hsts_max_age: 31556926
+- host: www.lex.lgbt
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov 22 13:21:02 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+domains:
+- domain: getwinkapp.com
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: true
+  dmarc_policy: none
+- domain: lex.lgbt
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: false
+  dmarc_policy: null
+note: Probed the two product domains 9 Count operates. www.9count.co is a domain-level
+  301 to www.getwinkapp.com and is not probed separately; api./developer./docs. subdomains
+  do not resolve.

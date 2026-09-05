@@ -1,0 +1,86 @@
+generated: '2026-09-05'
+method: probed
+source: live HTTP probe of every host this record knows (2026-09-05)
+note: >-
+  Every named /.well-known path was probed on all four hosts 9 Count operates. Nothing was
+  served anywhere, so NO WellKnown and NO SecurityTxt pointer is emitted — this file records
+  a measured absence, not a presence. www.9count.co is a domain-level 301 that sends EVERY
+  path to the Wink homepage, so its 200s are the redirect target, not documents; its
+  negative-control probe returned the same 304,900-byte homepage and therefore every 200 on
+  that host is discarded (path_echo_control: failed). getwinkapp.com, lex.lgbt and
+  blog.getwinkapp.com answer honest 404s and pass the negative control.
+hit_count: 0
+hosts:
+  - host: https://www.getwinkapp.com
+    role: product site (Wink) — the destination of the 9count.co corporate redirect
+    path_echo_control: passed
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /llms.txt, status: 404}
+      - {path: /.well-known/9count-negative-control-7f3ab91c.json, status: 404}
+  - host: https://www.9count.co
+    role: corporate domain — 301 redirects every path to https://www.getwinkapp.com/
+    path_echo_control: failed
+    note: >-
+      All 200s below are the Wink homepage returned by a domain-level redirect, including the
+      negative control (304,900 bytes). No document was fetched or saved; nothing counts.
+    documents:
+      - {path: /.well-known/security.txt, status: 200, file: null, counts: false}
+      - {path: /.well-known/openid-configuration, status: 200, file: null, counts: false}
+      - {path: /.well-known/oauth-authorization-server, status: 200, file: null, counts: false}
+      - {path: /.well-known/api-catalog, status: 200, file: null, counts: false}
+      - {path: /.well-known/ai-plugin.json, status: 200, file: null, counts: false}
+      - {path: /.well-known/agent-card.json, status: 200, file: null, counts: false}
+      - {path: /.well-known/agent.json, status: 200, file: null, counts: false}
+      - {path: /.well-known/apis.json, status: 200, file: null, counts: false}
+      - {path: /apis.json, status: 200, file: null, counts: false}
+      - {path: /apis.yml, status: 200, file: null, counts: false}
+      - {path: /llms.txt, status: 200, file: null, counts: false}
+      - {path: /.well-known/9count-negative-control-7f3ab91c.json, status: 200, file: null, counts: false}
+  - host: https://www.lex.lgbt
+    role: product site (Lex — acquired by 9 Count, September 2024)
+    path_echo_control: passed
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /llms.txt, status: 404}
+      - {path: /.well-known/9count-negative-control-7f3ab91c.json, status: 404}
+  - host: https://blog.getwinkapp.com
+    role: product blog
+    path_echo_control: passed
+    documents:
+      - {path: /.well-known/security.txt, status: 404}
+      - {path: /.well-known/openid-configuration, status: 404}
+      - {path: /.well-known/oauth-authorization-server, status: 404}
+      - {path: /.well-known/api-catalog, status: 404}
+      - {path: /.well-known/ai-plugin.json, status: 404}
+      - {path: /.well-known/agent-card.json, status: 404}
+      - {path: /.well-known/agent.json, status: 404}
+      - {path: /.well-known/apis.json, status: 404}
+      - {path: /apis.json, status: 404}
+      - {path: /apis.yml, status: 404}
+      - {path: /llms.txt, status: 404}
+      - {path: /.well-known/9count-negative-control-7f3ab91c.json, status: 404}
+hosts_without_dns:
+  - {host: api.getwinkapp.com, result: NXDOMAIN}
+  - {host: api.9count.co, result: NXDOMAIN}
+  - {host: developer.9count.co, result: NXDOMAIN}
+  - {host: docs.9count.co, result: NXDOMAIN}
+  - {host: api.lex.lgbt, result: NXDOMAIN}
